@@ -49,14 +49,17 @@ struct ContentView: View {
                 
             }
             .padding()
-             .background(.bar)
+            .background(.bar)
         }
         
     }
     
+}
+
+}
 
     
     #Preview{
         ContentView()
     }
-}
+
