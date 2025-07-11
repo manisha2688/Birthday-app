@@ -8,17 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var newName = ""
+    @State private var newBirthday = Date.now
+    @State private var friends: [Friend]
+    = [ Friend(name:"Nicole",birthday: .now),Friend(name:"Geethika", birthday: .now) ]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        List(friends, id: \.name) {friend in
+            HStack{
+                Text(friend.name)
+                Spacer()
+                Text(friend.birthday, format: .dateTime.month(.wide).day().year())
+                
+            }
+            
+            
+            
+            
         }
         .padding()
+        .navigationTitle("Birthdays")
+        .safeAreaInset(edge: .bottom){
+            VStack
+        }
+        
     }
-}
-
-#Preview {
-    ContentView()
+    
+    
+    
+    #Preview {
+        ContentView()
+    }
 }
